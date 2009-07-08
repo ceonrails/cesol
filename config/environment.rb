@@ -39,3 +39,17 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
+
+require 'smtp_tls'
+
+ActionMailer::Base.default_content_type = "text/html"
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.smtp_settings = {
+:address => "smtp.rafarubert.com",
+:port => 587,
+:authentication => :login,
+:domain => "rafarubert.com",
+:user_name => "contato@rafarubert.com",
+:password => "c0nt@t0"
+}
+
